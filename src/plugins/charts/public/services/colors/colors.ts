@@ -32,7 +32,7 @@ import _ from 'lodash';
 
 import { CoreSetup } from 'opensearch-dashboards/public';
 
-import { euiPaletteColorBlind } from '@elastic/eui';
+//import { euiPaletteColorBlind } from '@elastic/eui';
 import { MappedColors } from './mapped_colors';
 
 /**
@@ -44,7 +44,18 @@ import { MappedColors } from './mapped_colors';
 export class ColorsService {
   private _mappedColors?: MappedColors;
 
-  public readonly seedColors = euiPaletteColorBlind();
+  public readonly seedColors = [
+    '#00D4AA',  // 0 cyber teal
+    '#4F8FFF',  // 1 electric blue
+    '#FF4F4F',  // 2 alert red
+    '#FFB547',  // 3 warning amber
+    '#A78BFA',  // 4 violet
+    '#38BDF8',  // 5 sky blue
+    '#84CC16',  // 6 lime green
+    '#FF4F9A',  // 7 hot pink
+    '#FB923C',  // 8 soft orange
+    '#94A3B8',  // 9 steel gray
+  ];
 
   public get mappedColors() {
     if (!this._mappedColors) {

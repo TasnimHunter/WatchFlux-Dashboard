@@ -101,7 +101,7 @@ class TypeSelection extends React.Component<TypeSelectionProps, TypeSelectionSta
               <h2>
                 <FormattedMessage
                   id="visualizations.newVisWizard.title"
-                  defaultMessage="New Visualization"
+                  defaultMessage="New Widgets"
                 />
               </h2>
             </EuiText>
@@ -166,7 +166,7 @@ class TypeSelection extends React.Component<TypeSelectionProps, TypeSelectionSta
                     <h2>
                       <FormattedMessage
                         id="visualizations.newVisWizard.selectVisType"
-                        defaultMessage="Select a visualization type"
+                        defaultMessage="Select a widget type"
                       />
                     </h2>
                   </EuiTitle>

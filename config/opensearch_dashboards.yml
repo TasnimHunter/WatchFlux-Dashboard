@@ -243,18 +243,18 @@
 #  'ff00::/8',
 # ]
 
-# opensearchDashboards.branding:
-#   logo:
-#     defaultUrl: ""
-#     darkModeUrl: ""
-#   mark:
-#     defaultUrl: ""
-#     darkModeUrl: ""
-#   loadingLogo:
-#     defaultUrl: ""
-#     darkModeUrl: ""
-#   faviconUrl: ""
-#   applicationTitle: ""
+opensearchDashboards.branding:
+  logo:
+    defaultUrl: "https://raw.githubusercontent.com/d-x3n0n/bs_soc/refs/heads/main/bs_soc_image.png"
+    darkModeUrl: "https://raw.githubusercontent.com/d-x3n0n/bs_soc/refs/heads/main/bs_soc_image.png"
+  mark:
+    defaultUrl: "https://raw.githubusercontent.com/d-x3n0n/bs_soc/refs/heads/main/bs_soc_image.png"
+    darkModeUrl: "https://raw.githubusercontent.com/d-x3n0n/bs_soc/refs/heads/main/bs_soc_image.png"
+  loadingLogo:
+    defaultUrl: "https://raw.githubusercontent.com/d-x3n0n/bs_soc/refs/heads/main/bs_soc_image.png"
+    darkModeUrl: "https://raw.githubusercontent.com/d-x3n0n/bs_soc/refs/heads/main/bs_soc_image.png"
+  faviconUrl: "https://raw.githubusercontent.com/d-x3n0n/bs_soc/refs/heads/main/bs_soc_image.png"
+  applicationTitle: "WatchFlux Dashboard"
 #   useExpandedHeader: false
 
 # Set the value of this setting to true to capture region denied warnings and errors
@@ -426,3 +426,18 @@
 # @experimental Set the value to true to enable context provider
 # contextProvider:
 #   enabled: true
+
+
+opensearch.hosts: ["http://localhost:9200"]
+opensearch.ssl.verificationMode: none
+
+# Specify the index for OpenSearch Dashboards
+opensearchDashboards.index: ".opensearch_dashboards"
+
+# Specify the config index
+opensearchDashboards.configIndex: ".opensearch_dashboards_config"
+
+
+# config/opensearch_dashboards.yml
+vis_type_vega.enableExternalUrls: true
+vis_type_vega_builder.enabled: true

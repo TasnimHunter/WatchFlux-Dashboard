@@ -15,7 +15,7 @@ export function getVisualizeLandingBreadcrumbs(navigateToApp) {
   return [
     {
       text: i18n.translate('visBuilder.listing.breadcrumb', {
-        defaultMessage: 'Visualize',
+        defaultMessage: 'Widgets',
       }),
       onClick: () => navigateToApp(VISUALIZE_ID),
     },

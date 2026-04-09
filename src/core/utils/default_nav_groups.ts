@@ -48,7 +48,7 @@ const defaultNavGroups = {
   all: {
     id: ALL_USE_CASE_ID,
     title: i18n.translate('core.ui.group.all.title', {
-      defaultMessage: 'Analytics',
+      defaultMessage: 'Insights',
     }),
     description: i18n.translate('core.ui.group.all.description', {
       defaultMessage:

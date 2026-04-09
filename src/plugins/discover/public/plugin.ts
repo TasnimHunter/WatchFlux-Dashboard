@@ -265,7 +265,7 @@ export class DiscoverPlugin
 
     core.application.register({
       id: PLUGIN_ID,
-      title: 'Discover',
+      title: 'Explore',
       updater$: this.appStateUpdater.asObservable(),
       order: 1000,
       workspaceAvailability: WorkspaceAvailability.insideWorkspace,
@@ -377,7 +377,7 @@ export class DiscoverPlugin
 
     plugins.dataExplorer.registerView<DiscoverState>({
       id: PLUGIN_ID,
-      title: 'Discover',
+      title: 'Explore',
       defaultPath: '#/',
       appExtentions: {
         savedObject: {

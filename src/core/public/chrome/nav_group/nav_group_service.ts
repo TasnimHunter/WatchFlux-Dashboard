@@ -82,8 +82,8 @@ export interface ChromeNavGroupServiceStartContract {
 // Custom category is used for those features not belong to any of use cases in all use case.
 // and the custom category should always sit after manage category
 const customCategory: AppCategory = {
-  id: 'custom',
-  label: i18n.translate('core.ui.customNavList.label', { defaultMessage: 'Custom' }),
+  id: 'Dashboards',
+  label: i18n.translate('core.ui.customNavList.label', { defaultMessage: 'Dashboards' }),
   order: (DEFAULT_APP_CATEGORIES.manage.order || 0) + 500,
 };
 

@@ -1,0 +1,8 @@
+{
+  "id": "alertSummary",
+  "version": "opensearchDashboards",
+  "server": true,
+  "ui": true,
+  "requiredPlugins": ["navigation", "data", "home", "contentManagement"],
+  "optionalPlugins": []
+}

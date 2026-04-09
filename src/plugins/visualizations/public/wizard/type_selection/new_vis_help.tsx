@@ -44,7 +44,7 @@ export function NewVisHelp(props: Props) {
       <p>
         <FormattedMessage
           id="visualizations.newVisWizard.helpText"
-          defaultMessage="Start creating your visualization by selecting a type for that visualization."
+          defaultMessage="Start creating your widget by selecting a type for that widget."
         />
       </p>
       {props.promotedTypes.map((t) => (

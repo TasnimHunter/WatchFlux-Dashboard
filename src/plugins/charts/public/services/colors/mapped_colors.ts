@@ -33,7 +33,7 @@ import Color from 'color';
 
 import { CoreSetup } from 'opensearch-dashboards/public';
 
-import { euiPaletteColorBlind } from '@elastic/eui';
+//import { euiPaletteColorBlind } from '@elastic/eui';
 import { COLOR_MAPPING_SETTING } from '../../../common';
 
 const standardizeColor = (color: string) => new Color(color).hex().toLowerCase();
@@ -108,12 +108,21 @@ export class MappedColors {
     });
 
     // Choose colors from euiPaletteColorBlind and filter out any already assigned to keys
-    const rotations = Math.ceil(keys.length / 10);
-    const colorPalette = euiPaletteColorBlind({
-      rotations,
-      direction: rotations === 2 ? 'lighter' : 'both',
-      order: rotations > 2 ? 'middle-out' : 'append',
-    })
+    const CUSTOM_PALETTE = [
+      '#00D4AA',  // 0 cyber teal
+      '#4F8FFF',  // 1 electric blue
+      '#FF4F4F',  // 2 alert red
+      '#FFB547',  // 3 warning amber
+      '#A78BFA',  // 4 violet
+      '#38BDF8',  // 5 sky blue
+      '#84CC16',  // 6 lime green
+      '#FF4F9A',  // 7 hot pink
+      '#FB923C',  // 8 soft orange
+      '#94A3B8',  // 9 steel gray
+    ];
+    const repeated = Array.from({ length: Math.ceil(keysToMap.length / CUSTOM_PALETTE.length) })
+      .flatMap(() => CUSTOM_PALETTE);
+    const colorPalette = repeated
       .filter((color) => !alreadyUsedColors.includes(color.toLowerCase()))
       .slice(0, keysToMap.length);
 

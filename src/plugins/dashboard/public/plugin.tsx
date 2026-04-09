@@ -39,6 +39,7 @@ import { isEmpty } from 'lodash';
 import { createHashHistory } from 'history';
 import {
   App,
+  AppCategory,
   AppMountParameters,
   AppUpdater,
   CoreSetup,
@@ -86,6 +87,12 @@ import {
 } from '../../opensearch_dashboards_legacy/public';
 import { FeatureCatalogueCategory, HomePublicPluginSetup } from '../../../plugins/home/public';
 import { DEFAULT_APP_CATEGORIES, DEFAULT_NAV_GROUPS } from '../../../core/public';
+
+const DASHBOARDS_CATEGORY: AppCategory = {
+  id: 'custom_dashboards',
+  label: 'Dashboards',
+  order: 5000,
+};
 
 import {
   ACTION_CLONE_PANEL,
@@ -370,13 +377,13 @@ export class DashboardPlugin
 
     const app: App = {
       id: DashboardConstants.DASHBOARDS_ID,
-      title: 'Dashboards',
+      title: 'Custom Dashboards',
       order: 2500,
       workspaceAvailability: WorkspaceAvailability.insideWorkspace,
       euiIconType: 'inputOutput',
       defaultPath: `#${DashboardConstants.LANDING_PAGE_PATH}`,
       updater$: this.appStateUpdater,
-      category: DEFAULT_APP_CATEGORIES.opensearchDashboards,
+      category: DASHBOARDS_CATEGORY,
       mount: async (params: AppMountParameters) => {
         const [coreStart, pluginsStart, dashboardStart] = await core.getStartServices();
         this.currentHistory = params.history;
@@ -461,39 +468,78 @@ export class DashboardPlugin
 
     core.application.register(app);
 
+    // ── Custom dashboard nav items ──────────────────────────────────────────
+    const SUMMARY_DASHBOARD_ID      = 'e018b980-2dc5-11f1-b218-379854579e2b';
+    const AGENT_DASHBOARD_ID        = '63018a30-30c2-11f1-84eb-e9d8ae9d7a30';
+    const NETWORK_DASHBOARD_ID      = 'c21ffb40-2f24-11f1-83dc-35287d2bf91c';
+    const THREAT_INTEL_DASHBOARD_ID = 'REPLACE_WITH_UUID';
+
+    const customDashboardItems = [
+      { id: 'nav_summary_dashboard',      title: 'Summary Dashboard',           uuid: SUMMARY_DASHBOARD_ID,      order: 2 },
+      { id: 'nav_agent_dashboard',        title: 'Agent Dashboard',             uuid: AGENT_DASHBOARD_ID,        order: 3 },
+      { id: 'nav_network_dashboard',      title: 'Network Dashboard',           uuid: NETWORK_DASHBOARD_ID,      order: 4 },
+      { id: 'nav_threat_intel_dashboard', title: 'Threat Intelligence Dashboard', uuid: THREAT_INTEL_DASHBOARD_ID, order: 5 },
+    ];
+
+    customDashboardItems.forEach((item) => {
+      core.application.register({
+        id: item.id,
+        title: item.title,
+        category: DASHBOARDS_CATEGORY,
+        order: item.order,
+        mount: async (params: AppMountParameters) => {
+          const [coreStart, pluginsStart] = await core.getStartServices();
+          pluginsStart.data.indexPatterns.clearCache();
+          coreStart.application.navigateToUrl(`/app/dashboards#/view/${item.uuid}`);
+          return () => {};
+        },
+      });
+    });
+    // ────────────────────────────────────────────────────────────────────────
+
+    customDashboardItems.forEach((item) => {
+      core.chrome.navGroup.addNavLinksToGroup(DEFAULT_NAV_GROUPS.all, [
+        {
+          id: item.id,
+          order: item.order,
+          category: DASHBOARDS_CATEGORY,
+        },
+      ]);
+    });
+
     core.chrome.navGroup.addNavLinksToGroup(DEFAULT_NAV_GROUPS.observability, [
       {
         id: app.id,
         order: 400,
-        category: undefined,
+        category: DASHBOARDS_CATEGORY,
       },
     ]);
     core.chrome.navGroup.addNavLinksToGroup(DEFAULT_NAV_GROUPS['security-analytics'], [
       {
         id: app.id,
         order: 400,
-        category: undefined,
+        category: DASHBOARDS_CATEGORY,
       },
     ]);
     core.chrome.navGroup.addNavLinksToGroup(DEFAULT_NAV_GROUPS.essentials, [
       {
         id: app.id,
         order: 300,
-        category: undefined,
+        category: DASHBOARDS_CATEGORY,
       },
     ]);
     core.chrome.navGroup.addNavLinksToGroup(DEFAULT_NAV_GROUPS.search, [
       {
         id: app.id,
         order: 300,
-        category: undefined,
+        category: DASHBOARDS_CATEGORY,
       },
     ]);
     core.chrome.navGroup.addNavLinksToGroup(DEFAULT_NAV_GROUPS.all, [
       {
         id: app.id,
         order: 300,
-        category: undefined,
+        category: DASHBOARDS_CATEGORY,
       },
     ]);
 

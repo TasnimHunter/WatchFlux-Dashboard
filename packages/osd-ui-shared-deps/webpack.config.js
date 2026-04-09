@@ -52,6 +52,8 @@ exports.getWebpackConfig = ({ dev = false } = {}) => ({
     'osd-ui-shared-deps.v8.light': ['@elastic/eui/dist/eui_theme_next_light.css'],
     'osd-ui-shared-deps.v9.dark': ['@elastic/eui/dist/eui_theme_v9_dark.css'],
     'osd-ui-shared-deps.v9.light': ['@elastic/eui/dist/eui_theme_v9_light.css'],
+    'osd-ui-shared-deps.cyberviolet.dark':  ['@elastic/eui/dist/eui_theme_dark.css', './cyberviolet_overrides.css'],
+    'osd-ui-shared-deps.cyberviolet.light': ['@elastic/eui/dist/eui_theme_light.css'],
   },
   context: __dirname,
   devtool: dev ? 'cheap-module-source-map' : false,

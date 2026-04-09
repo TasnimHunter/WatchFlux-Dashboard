@@ -36,7 +36,7 @@ export const DEFAULT_APP_CATEGORIES: Record<string, AppCategory> = Object.freeze
   opensearchDashboards: {
     id: 'opensearchDashboards',
     label: i18n.translate('core.ui.opensearchDashboardsNavList.label', {
-      defaultMessage: 'OpenSearch Dashboards',
+      defaultMessage: 'WatchFlux Dashboards',
     }),
     euiIconType: 'inputOutput',
     order: 1000,
@@ -84,14 +84,14 @@ export const DEFAULT_APP_CATEGORIES: Record<string, AppCategory> = Object.freeze
   dashboardAndReport: {
     id: 'visualizeAndReport',
     label: i18n.translate('core.ui.visualizeAndReport.label', {
-      defaultMessage: 'Visualize and report',
+      defaultMessage: 'Widgets',
     }),
     order: 2000,
   },
   visualizeAndReport: {
     id: 'visualizeAndReport',
     label: i18n.translate('core.ui.visualizeAndReport.label', {
-      defaultMessage: 'Visualize and report',
+      defaultMessage: 'Widgets',
     }),
     order: 1000,
   },

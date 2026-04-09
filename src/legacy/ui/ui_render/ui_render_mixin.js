@@ -247,6 +247,16 @@ export function uiRenderMixin(osdServer, server, config) {
           light: getLoadingVars(v9light),
           dark: getLoadingVars(v9dark),
         },
+        cyberviolet: {
+          light: getLoadingVars(v7light),
+          dark: {
+            euiColorDarkShade:         '#8888aa',
+            euiColorFullShade:         '#ffffff',
+            euiColorLightestShade:     '#1f1f3a',
+            euiColorPrimary:           '#7a4fff',
+            euiHeaderBackgroundColor:  '#0a0a16',
+          },
+        },
       });
 
       /*
@@ -257,12 +267,14 @@ export function uiRenderMixin(osdServer, server, config) {
         v7: 'Inter UI',
         v8: 'Source Sans 3',
         v9: 'Rubik',
+        cyberviolet: 'Inter UI',
       });
 
       const fontCode = JSON.stringify({
         v7: 'Roboto Mono',
         v8: 'Source Code Pro',
         v9: 'Source Code Pro',
+        cyberviolet: 'Roboto Mono',
       });
 
       const startup = new AppBootstrap(

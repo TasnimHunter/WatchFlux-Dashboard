@@ -15,7 +15,7 @@ jest.mock('@osd/ui-shared-deps/theme', () => ({
     euiColorVis7: '#DA8B45',
     euiColorVis8: '#AA6556',
     euiColorMediumShade: '#98A2B3',
-    euiColorPrimary: '#006BB4',
+    euiColorPrimary: '#033355',
     euiColorDarkShade: '#69707D',
   },
 }));

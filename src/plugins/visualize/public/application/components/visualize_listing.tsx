@@ -91,7 +91,7 @@ export const VisualizeListing = () => {
       chrome.setBreadcrumbs([
         {
           text: i18n.translate('visualize.listingBreadcrumbsTitle', {
-            defaultMessage: 'Visualizations',
+            defaultMessage: 'Widgets',
           }),
         },
       ]);
@@ -99,14 +99,14 @@ export const VisualizeListing = () => {
       chrome.setBreadcrumbs([
         {
           text: i18n.translate('visualize.legacy.listingBreadcrumbsTitle', {
-            defaultMessage: 'Visualize',
+            defaultMessage: 'Widgets',
           }),
         },
       ]);
     }
 
     chrome.docTitle.change(
-      i18n.translate('visualize.listingPageTitle', { defaultMessage: 'Visualize' })
+      i18n.translate('visualize.listingPageTitle', { defaultMessage: 'Widgets' })
     );
   });
   useUnmount(() => closeNewVisModal.current());
@@ -200,7 +200,7 @@ export const VisualizeListing = () => {
           controls={[
             {
               id: 'visualize.createVisualization',
-              label: 'Create visualization',
+              label: 'Create Widgets',
               testId: 'createVisualizationButton',
               run: createNewVis,
               fill: true,
@@ -231,7 +231,7 @@ export const VisualizeListing = () => {
           defaultMessage: 'visualizations',
         })}
         tableListTitle={i18n.translate('visualize.listing.table.listTitle', {
-          defaultMessage: 'Visualizations',
+          defaultMessage: 'Widgets',
         })}
         toastNotifications={toastNotifications}
         showUpdatedUx={showUpdatedUx}

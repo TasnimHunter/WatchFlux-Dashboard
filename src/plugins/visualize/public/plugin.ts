@@ -231,7 +231,7 @@ export class VisualizePlugin
     });
 
     const titleInLeftNav = i18n.translate('visualize.leftNav.visualizeTitle', {
-      defaultMessage: 'Visualizations',
+      defaultMessage: 'Widgets',
     });
 
     core.chrome.navGroup.addNavLinksToGroup(DEFAULT_NAV_GROUPS.observability, [

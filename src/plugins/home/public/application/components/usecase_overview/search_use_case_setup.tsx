@@ -3,6 +3,7 @@
  * SPDX-License-Identifier: Apache-2.0
  */
 
+import { AlertSummaryCards } from '../../../../../alert_summary/public';
 import React from 'react';
 import { CoreStart } from 'opensearch-dashboards/public';
 import { EuiI18n, EuiIcon, EuiLink, EuiTextColor } from '@elastic/eui';
@@ -32,6 +33,19 @@ export const setupSearchUseCase = (contentManagement: ContentManagementPluginSet
     id: SEARCH_OVERVIEW_PAGE_ID,
     title: 'Overview',
     sections: [
+            // ── Alert summary section — appears at very top ──
+      {
+        id: 'alert_summary_section',
+        order: 0,
+        kind: 'custom',
+        render: (contents) => {
+          const alertContent = contents.find((c) => c.id === 'alert_summary_overview');
+          if (alertContent && alertContent.kind === 'custom') {
+            return alertContent.render();
+          }
+          return React.createElement(React.Fragment, null);
+        },
+      },
       getStartedSection,
       {
         id: SECTIONS.DIFFERENT_SEARCH_TYPES,
@@ -68,6 +82,18 @@ export const registerContentToSearchUseCasePage = (
       <EuiIcon size="s" type="popout" />
     </>
   );
+    // ── Alert Summary Cards — FIRST, before getStartedCards ──────
+  contentManagement.registerContentProvider({
+    id: 'alert_summary_overview',
+    getContent: () => ({
+      id: 'alert_summary_overview',
+      kind: 'custom',
+      order: 0,
+      render: () => React.createElement(AlertSummaryCards, { core }),
+    }),
+    getTargetArea: () => SEARCH_OVERVIEW_CONTENT_AREAS.GET_STARTED,
+  });
+  // ─────────────────────────────────────────────────────────────
   const getStartedCards = [
     {
       id: 'access_search_functionality',

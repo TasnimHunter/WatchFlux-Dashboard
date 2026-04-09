@@ -19,7 +19,7 @@ import React, { useState } from 'react';
 import { ReactExpressionRenderer } from '../../../../src/plugins/expressions/public';
 
 export function RenderTab() {
-  const [value, setValue] = useState('OpenSearch Dashboards');
+  const [value, setValue] = useState('Dashboards');
   const [size, setSize] = useState('xl');
   const expressionString = `avatar name="${value}" size="${size}"`;
 

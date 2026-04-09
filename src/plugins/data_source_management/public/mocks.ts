@@ -121,7 +121,7 @@ export const managementMock = {
         getApp: jest.fn(),
         getAppsEnabled: jest.fn(),
         id: 'opensearchDashboards',
-        title: 'OpenSearch Dashboards',
+        title: 'WatchFlux Dashboards',
         order: 0,
         showExperimentalBadge: false,
         enabled: true,

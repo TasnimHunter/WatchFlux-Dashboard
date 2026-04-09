@@ -62,7 +62,7 @@ describe('NewVisHelp', () => {
       >
         <p>
           <FormattedMessage
-            defaultMessage="Start creating your visualization by selecting a type for that visualization."
+            defaultMessage="Start creating your widget by selecting a type for that visualization."
             id="visualizations.newVisWizard.helpText"
             values={Object {}}
           />

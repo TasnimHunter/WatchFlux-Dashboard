@@ -44,7 +44,7 @@ export const darkMode = tag?.endsWith?.('dark');
 
 export let euiLightVars: Theme;
 export let euiDarkVars: Theme;
-if (themeVersion === 'v7') {
+if (themeVersion === 'v7' || themeVersion === 'cyberviolet') {
   euiLightVars = require('@elastic/eui/dist/eui_theme_light.json');
   euiDarkVars = require('@elastic/eui/dist/eui_theme_dark.json');
 } else if (themeVersion === 'v9') {
