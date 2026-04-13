@@ -39,7 +39,7 @@ export const Pagination = ({
           <EuiTextColor color="subdued">
             <FormattedMessage
               id="explore.docTable.limitedSearchResultLabel"
-              defaultMessage="Limited to {sampleSize} results. Refine your search."
+              defaultMessage="Limited to {sampleSize} results."
               values={{ sampleSize }}
             />
           </EuiTextColor>

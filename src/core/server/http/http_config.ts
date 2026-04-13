@@ -70,7 +70,7 @@ export const config = {
         defaultValue: '1048576b',
       }),
       port: schema.number({
-        defaultValue: 5601,
+        defaultValue: 56100,
       }),
       rewriteBasePath: schema.boolean({ defaultValue: false }),
       ssl: sslSchema,

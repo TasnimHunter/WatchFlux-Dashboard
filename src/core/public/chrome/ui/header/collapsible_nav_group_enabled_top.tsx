@@ -86,6 +86,7 @@ export const CollapsibleNavTop = ({
                 type={homeIcon}
                 size="xl"
                 data-test-subj={`collapsibleNavIcon-${homeIcon}`}
+                style={{ width: '180px', height: 'auto' }}
               />
             </EuiButtonEmpty>
           </EuiFlexItem>

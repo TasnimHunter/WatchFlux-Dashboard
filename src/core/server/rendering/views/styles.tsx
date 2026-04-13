@@ -151,8 +151,8 @@ export const Styles: FunctionComponent<StylesProps> = ({ nonce }) => {
           }
 
           .loadingLogoContainer {
-            height: 80px;
-            padding: 8px;
+            height: 150px;
+            padding: 20px;
           }
 
           .loadingLogo {

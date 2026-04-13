@@ -1,5 +1,5 @@
 # OpenSearch Dashboards is served by a back end server. This setting specifies the port to use.
-# server.port: 5601
+server.port: 56100
 
 # Specifies the address to which the OpenSearch Dashboards server will bind. IP addresses and host names are both valid values.
 # The default is 'localhost', which usually means remote machines will not be able to connect.
@@ -245,16 +245,16 @@
 
 opensearchDashboards.branding:
   logo:
-    defaultUrl: "https://raw.githubusercontent.com/d-x3n0n/bs_soc/refs/heads/main/bs_soc_image.png"
-    darkModeUrl: "https://raw.githubusercontent.com/d-x3n0n/bs_soc/refs/heads/main/bs_soc_image.png"
+    defaultUrl: "http://localhost:56100/ui/logos/WatchFlux-removebg-preview.png"
+    darkModeUrl: "http://localhost:56100/ui/logos/WatchFlux-removebg-preview.png"
   mark:
-    defaultUrl: "https://raw.githubusercontent.com/d-x3n0n/bs_soc/refs/heads/main/bs_soc_image.png"
-    darkModeUrl: "https://raw.githubusercontent.com/d-x3n0n/bs_soc/refs/heads/main/bs_soc_image.png"
+    defaultUrl: "http://localhost:56100/ui/logos/WatchFlux-removebg-preview.png"
+    darkModeUrl: "http://localhost:56100/ui/logos/WatchFlux-removebg-preview.png"
   loadingLogo:
-    defaultUrl: "https://raw.githubusercontent.com/d-x3n0n/bs_soc/refs/heads/main/bs_soc_image.png"
-    darkModeUrl: "https://raw.githubusercontent.com/d-x3n0n/bs_soc/refs/heads/main/bs_soc_image.png"
-  faviconUrl: "https://raw.githubusercontent.com/d-x3n0n/bs_soc/refs/heads/main/bs_soc_image.png"
-  applicationTitle: "WatchFlux Dashboard"
+    defaultUrl: "http://localhost:56100/ui/logos/WatchFlux-removebg-preview.png"
+    darkModeUrl: "http://localhost:56100/ui/logos/WatchFlux-removebg-preview.png"
+  faviconUrl: "http://localhost:56100/ui/logos/WatchFlux-removebg-preview.png"
+  applicationTitle: "WatchFlux"
 #   useExpandedHeader: false
 
 # Set the value of this setting to true to capture region denied warnings and errors
@@ -438,6 +438,6 @@ opensearchDashboards.index: ".opensearch_dashboards"
 opensearchDashboards.configIndex: ".opensearch_dashboards_config"
 
 
-# config/opensearch_dashboards.yml
-vis_type_vega.enableExternalUrls: true
-vis_type_vega_builder.enabled: true
+#vega
+vis_type_vega.enabled: true
+data_source.enabled: true  # If using multiple data sources
